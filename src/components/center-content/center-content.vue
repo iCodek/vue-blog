@@ -1,0 +1,37 @@
+<template>
+  <div class="center-content">
+    <tab></tab>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+  </div>
+</template>
+
+<script>
+import Tab from 'cpnts/tab/tab'
+import MainContent from 'cpnts/main-content/main-content'
+export default {
+  components: {
+    Tab,
+    MainContent
+  },
+  props: {},
+  data () {
+    return {
+    }
+  },
+  watch: {},
+  computed: {},
+  methods: {},
+  created () {},
+  mounted () {}
+}
+</script>
+<style  lang="scss" scoped>
+.center-content{
+  position: relative;
+  margin: 5px;
+  flex: 1;
+  overflow: hidden;
+}
+</style>
