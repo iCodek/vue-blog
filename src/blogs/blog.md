@@ -2,12 +2,13 @@
 
 >## 0. 开篇
 >
->今天818，帮弟弟买手机又被狗东坑了一手，真实气啊。言归正传，这是第一篇markdown博客，主要目的呢，是为了熟悉下markdown语法和记录下博客的开发日志，也是第一次边学边做笔记，当初没用现成的wordpress和hexo，就是为了自己实现一下动态博客。开始吧～
+>今天818，帮弟弟买手机又被狗东坑了一手，真是气啊。言归正传，这是第一篇markdown博客，主要目的呢，是为了熟悉下markdown语法和记录下博客的开发日志，也是第一次边学边做笔记，当初没用现成的wordpress和hexo，就是为了自己实现一下动态博客。开始吧～
 >
+>GitHub地址在此：https://github.com/iCodek/vue-blog
 
-## 1.网站大体样式
+# 1.网站大体样式
 
-### 1.1 先创建Vue项目
+## 1.1 先创建Vue项目
 
 ```
 vue init webpack vue-blog
@@ -15,7 +16,7 @@ vue init webpack vue-blog
 
 改下结构，加了下面三个目录
 
-![image-20200818130311648](博客主页开发日志.assets/image-20200818130311648.png)
+![image-20200826154211160](imgs/image-20200826154211160.png)
 
 - api 前后端交互
 - base 基本组件
@@ -23,15 +24,17 @@ vue init webpack vue-blog
 
 
 
-### 1.2 编写样式
+## 1.2 编写样式
 
 主要样子呢 打算照着[小游的博客主页](https://xiaoyou66.com/)画瓢
 
-![批注 2020-08-18 131910](博客主页开发日志.assets/批注 2020-08-18 131910.png)
+![](imgs/image-20200826154240558.png)
 
 观察了下，路由的位置都在中间的绿色区域，那就先把其他的组件位置固定下。
 
-### 1.2.1 m-header组件
+# 2.各种组件
+
+## 2.1 m-header组件
 
 创建好了脚手架，突然发现body默认是*margin:* *8px;*晕，在index.html修改下style
 
@@ -41,7 +44,7 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 @import url("../../common/css/iconfont/iconfont.css");
 ```
 
-分类标题用的弹性布局，也是第一次搞懂了，只要设置父元素display: flex; 在设置子元素的flex大小，是成比例缩放的。其他参数可以[参见](https://www.cnblogs.com/yszr/p/9339809.html)。
+分类标题用的弹性布局，也是第一次搞懂了，只要设置父元素display: flex; 在设置子元素的flex大小，是成比例缩放的。其他参数可以[参见](https://www.runoob.com/w3cnote/flex-grammar.html)。
 
 还有首页的居中，设置父元素没有高度，然后子元素设置margin即可。
 
@@ -71,7 +74,7 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
 就能用了，#后面是图标的代码（自己项目里的）
 
-### 1.2.2  content组件
+## 2.2  content组件
 
 中间主要有三列，用了弹性布局
 
@@ -105,13 +108,13 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
 默认左右两边的容器直接撑到底下了，查了下父元素要设置**align-items**
 
-<img src="博客主页开发日志.assets/image-20200818160039299.png" alt="image-20200818160039299" style="zoom:50%;" />
+<img src="imgs/image-20200818160039299.png" alt="image-20200818160039299" style="zoom:50%;" />
 
 大致框架为
 
-<img src="博客主页开发日志.assets/image-20200818163913139.png" alt="image-20200818163913139" style="zoom:50%;" />
+<img src="imgs/image-20200818163913139-1598429442173.png" alt="image-20200818163913139" style="zoom:50%;" />
 
-### 1.2.3 user-info组件
+## 2.3 user-info组件
 
 这里的布局都是用的flex，熟能生巧了。
 
@@ -145,7 +148,7 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
   }
   ```
 
-- 下面的联系方式图标想要一个hover显示提示框的效果![image-20200819143501237](博客主页开发日志.assets/image-20200819143501237.png)这里要用三个伪类，首先在after伪类里面弄好圆角框和动画时间，然后隐藏。接下来在:hover::after里面显示就可以了，下面的三角形其实是一个css画的before
+- 下面的联系方式图标想要一个hover显示提示框的效果![image-20200819143501237](imgs/image-20200819143501237.png)这里要用三个伪类，首先在after伪类里面弄好圆角框和动画时间，然后隐藏。接下来在:hover::after里面显示就可以了，下面的三角形其实是一个css画的before
 
   ```css
   ::after {
@@ -190,11 +193,11 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
   }
   ```
 
-### 1.2.4 music-box组件
+## 2.4 music-box组件
 
 这绝对称得上博客页面最难的地方，用上了keyframes动画，height是auto的动画，vuescroll插件，自己画svg，父子组件通信，Promise.all的使用，li里的span不换行，一个一个讲。
 
-![image-20200820222252811](博客主页开发日志.assets/image-20200820222252811.png)
+![](imgs/image-20200820222252811.png)
 
 - keyframes 实现旋转动画，首先定义rotate
 
@@ -391,11 +394,9 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
   外面再套一个span，设置 white-space: nowrap; 和设置 li    overflow: hidden;
 
-------
-
 播放组件做了做了一天半，效果如图
 
-![image-20200822165552890](博客主页开发日志.assets/image-20200822165552890.png)
+![](imgs/image-20200822165552890-1598429509454.png)
 
 真是苦难重重啊。
 
@@ -471,54 +472,54 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
 - 歌词移动
 
-  - 歌词没有点击事件，比上面简单一点
+  歌词没有点击事件，比上面简单一点
 
-    ```js
-    	lyricTouchStart (e) {
-          this.songLyric.move = true
-          this.songLyric.startY = this._isMobile() ? e.touches[0].clientY : e.clientY
-          this.songLyric.marginTop = this.$refs.ul.style.marginTop
-          let dom = document.querySelector('ul')
-          let height = window.getComputedStyle(dom).height
-          this.songLyric.height = height
-          let $this = this
-          if (!this._isMobile()) {
-            document.onmousemove = function (e) {
-              $this.lyricTouchMove(e)
-            }
-            document.onmouseup = function (e) {
-              document.onmousemove = null
-              document.onmouseup = null
-              $this.lyricTouchEnd()
-            }
-          } else {
-            document.ontouchmove = function (e) {
-              $this.lyricTouchMove(e)
-            }
-            document.ontouchend = function (e) {
-              document.ontouchmove = null
-              document.ontouchend = null
-              $this.lyricTouchEnd()
-            }
+  ```js
+  	lyricTouchStart (e) {
+        this.songLyric.move = true
+        this.songLyric.startY = this._isMobile() ? e.touches[0].clientY : e.clientY
+        this.songLyric.marginTop = this.$refs.ul.style.marginTop
+        let dom = document.querySelector('ul')
+        let height = window.getComputedStyle(dom).height
+        this.songLyric.height = height
+        let $this = this
+        if (!this._isMobile()) {
+          document.onmousemove = function (e) {
+            $this.lyricTouchMove(e)
           }
-        },
-        lyricTouchMove (e) {
-          if (!this.songLyric.move) return
-          let endY = this._isMobile() ? e.touches[0].clientY : e.clientY
-          this.transitionOn = false
-          let top = Math.min(parseInt(this.songLyric.marginTop) + endY - this.songLyric.startY, 25)
-          let bottom = Math.max(-parseInt(this.songLyric.height) + 45, top)
-          this.$refs.ul.style.marginTop = bottom + 'px'
-        },
-        lyricTouchEnd (e) {
-          this.songLyric.move = false
-          this.transitionOn = true
+          document.onmouseup = function (e) {
+            document.onmousemove = null
+            document.onmouseup = null
+            $this.lyricTouchEnd()
+          }
+        } else {
+          document.ontouchmove = function (e) {
+            $this.lyricTouchMove(e)
+          }
+          document.ontouchend = function (e) {
+            document.ontouchmove = null
+            document.ontouchend = null
+            $this.lyricTouchEnd()
+          }
         }
-    ```
+      },
+      lyricTouchMove (e) {
+        if (!this.songLyric.move) return
+        let endY = this._isMobile() ? e.touches[0].clientY : e.clientY
+        this.transitionOn = false
+        let top = Math.min(parseInt(this.songLyric.marginTop) + endY - this.songLyric.startY, 25)
+        let bottom = Math.max(-parseInt(this.songLyric.height) + 45, top)
+        this.$refs.ul.style.marginTop = bottom + 'px'
+      },
+      lyricTouchEnd (e) {
+        this.songLyric.move = false
+        this.transitionOn = true
+      }
+  ```
 
-- 音量悬浮显示音量bar![image-20200822172328629](博客主页开发日志.assets/image-20200822172328629.png)
+- 音量悬浮显示音量bar![image-20200822172328629](imgs/image-20200822172328629.png)
 
-  注意点：悬浮显示需要在鼠标悬浮在![image-20200822172553110](博客主页开发日志.assets/image-20200822172553110.png)和进度条部分都要显示，所以干脆把这两个放在一个div里，初始父div位置就在图标上，hover时，把子div就是bar的height高度还原正常，这样鼠标移动到bar就可以继续hover显示
+- 注意点：悬浮显示需要在鼠标悬浮在![](imgs/image-20200822172553110.png)和进度条部分都要显示，所以干脆把这两个放在一个div里，初始父div位置就在图标上，hover时，把子div就是bar的height高度还原正常，这样鼠标移动到bar就可以继续hover显示
 
   ```css
   .volume {
@@ -531,30 +532,32 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
   }
   ```
 
-  - 音量调整条 比上面两个简单
+  音量调整条 比上面两个简单
 
-    ```js
-    	volumeClick (e) {
-          let rect = this.$refs.vlmpgs.getBoundingClientRect()
+  ```js
+  	volumeClick (e) {
+        let rect = this.$refs.vlmpgs.getBoundingClientRect()
+        let offsetHeight = rect.bottom - e.clientY
+        let barHeight = rect.bottom - rect.top
+        this.volume = Math.min(Math.max(offsetHeight / barHeight, 0), 1)
+      },
+      volumeMoveStart (e) {
+        let rect = this.$refs.vlmpgs.getBoundingClientRect()
+        let $this = this
+        document.onmousemove = function (e) {
           let offsetHeight = rect.bottom - e.clientY
           let barHeight = rect.bottom - rect.top
-          this.volume = Math.min(Math.max(offsetHeight / barHeight, 0), 1)
-        },
-        volumeMoveStart (e) {
-          let rect = this.$refs.vlmpgs.getBoundingClientRect()
-          let $this = this
-          document.onmousemove = function (e) {
-            let offsetHeight = rect.bottom - e.clientY
-            let barHeight = rect.bottom - rect.top
-    
-            $this.volume = Math.min(Math.max(offsetHeight / barHeight, 0), 1)
-          }
-          document.onmouseup = function (e) {
-            document.onmousemove = null
-            document.onmouseup = null
-          }
+  
+          $this.volume = Math.min(Math.max(offsetHeight / barHeight, 0), 1)
         }
-    ```
+        document.onmouseup = function (e) {
+          document.onmousemove = null
+          document.onmouseup = null
+        }
+      }
+  ```
+
+  
 
 - 歌词高亮
 
@@ -571,7 +574,7 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
   }
   ```
 
-  相当于歌词透明，背景是![image-20200822174649258](博客主页开发日志.assets/image-20200822174649258.png)，背景透过透明的字就是-webkit-background-clip: text;的效果
+  相当于歌词透明，背景是![](imgs/image-20200822174649258.png)，背景透过透明的字就是-webkit-background-clip: text;的效果
 
 - 获取内联样式
 
@@ -607,8 +610,6 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
   #### 五、x、y
 
   和screenX、screenY一样
-
-------
 
 音乐盒又细化了两天 现在来继续总结下
 
@@ -656,7 +657,7 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
 - 注意下.className:hover（无空格）和.className :hover（:前面有空格）的区别
 
-- 列表布局![image-20200824161718758](博客主页开发日志.assets/image-20200824161718758.png)
+- 列表布局![ ](imgs/image-20200824161718758.png)
 
   注意歌名过长会隐藏掉，然后歌手名字长度是不固定的，局部方式
 
@@ -703,7 +704,7 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
 - 注册全局filter（main.js)
 
-  ```vue
+  ```js
   Vue.filter('format', (interval) => {
     interval = interval | 0
     let minute = interval / 60 | 0
@@ -738,22 +739,31 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
 - input里面的placeholder字体
 
-  ```
+  ```css
   input::-webkit-input-placeholder { 
-  /* WebKit browsers */ 
   color: #ccc; 
-  } 
+  }
   ```
 
-  
+## 2.5 blog-box组件
 
-###  1.2.5 主题透明度
+- 背景图片API
+
+  ```html
+  <div class="pic" :style="{backgroundImage : 'url(https://random.52ecy.cn/randbg.php/'+index+')'}"></div>
+  ```
+
+  index是父组件传入的props，为了图片不重复（设置cookie达到不重复，第一次登录需要刷新）
+
+#  3.骚操作
+
+##  3.1 主题透明度
 
 为了调节全局的透明的，使用拖拽进度条调节css的var() 
 
 - 进度条组件
 
-  ```vue
+  ```css
   <template>
     <div class="sliderwrap">
       <div class="slider" ref="slider">
@@ -928,7 +938,7 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
 - 全局透明度，index.html定义
 
-  ```
+  ```css
   :root {
     --color: rgba(255, 255, 255, 1);
     --opacity: 1;
@@ -937,14 +947,14 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
   在需要改变的类样式中
 
-  ```
+  ```css
   background-color: var(--color);
   opacity: var(--opacity);
   ```
 
   观察进度条变化变化，调节透明度
 
-  ```vue
+  ```js
     watch: {
       transparent (newVal) {
         if (newVal >= 0 && newVal <= 100) {
@@ -959,3 +969,308 @@ search-box组件用到了icon-font 使用方式是在style中导入（全局可�
 
 ------
 
+## 3.2 打乱动画
+
+主要在![image-20200826213007574](imgs/image-20200826213007574.png)![image-20200826213021445](imgs/image-20200826213021445.png)这两部分有shuffle动画，参考了Vue官网。
+
+- 引入shuffle函数（本来自己写的，结果动画不支持自己写的）
+
+  ```js
+  import _ from 'lodash/lodash'
+  ```
+
+- 创建彩虹色函数和打乱函数
+
+  ```js
+  methods: {
+    rainBow () {
+    	this.color = rainbowColor(this.tags.length, 15, 255)
+    },
+    shuffle () {
+    	this.tags = _.shuffle(this.tags)
+    }
+  },
+  ```
+
+- 初始化颜色
+
+  ```js
+  mounted () {
+  	this.rainBow()
+  }
+  ```
+
+- 使用transition-group组件和绑定shuffle函数
+
+  ```html
+    <div  @click="shuffle">
+      <transition-group name="cell" tag="div" class="tags">
+        <div class="tag" v-for="(tag, index) in tags" :key="tag.number" :style="{backgroundColor : color[index]}">
+          {{tag.name+' ('+tag.number+')'}}
+        </div>
+      </transition-group>
+    </div>
+  ```
+
+- 添加css
+
+  ```css
+  .cell-move {
+    transition: transform 1s;
+  }
+  ```
+
+## 3.3 board组件
+
+![image-20200826213524137](imgs/image-20200826213524137.png)
+
+这是一个基础组件，预留了slot
+
+```html
+<template>
+  <div class="board">
+    <div class="title">
+      {{title}}
+    </div>
+    <div class="line"></div>
+    <slot></slot>
+    <p v-html="content"></p>
+  </div>
+</template>
+```
+
+注意点：
+
+```html
+<p v-html="content"></p> 原本是<p>{{content}}</p>，
+```
+
+但是这样不支持content里面有换行，模板字符串也不行，只能用v-html，传入的
+
+content需要使用
+
+```
+空格：&emsp;
+换行：<br>
+```
+
+但是这样content不受组件内部css影响，需要在index.html的css设置
+
+# 4.markdown显示
+
+## 4.1 md-view组件
+
+- package.json添加依赖dependencies
+
+```json
+"mavon-editor": "2.9.0",
+"markdown-loader": "5.1.0",
+"html-loader": "1.3.0"
+```
+
+- main.js全局注册
+
+  ```js
+  import mavonEditor from 'mavon-editor'
+  import 'mavon-editor/dist/css/index.css'
+  Vue.use(mavonEditor)
+  ```
+
+- 引入博客的md文件，并绑定给组件
+
+  ```js
+  import Blog from 'blogs/博客主页开发日志.md'
+  export default {
+    components: {},
+    props: {},
+    data () {
+      return {
+        value: Blog
+      }
+    },
+    watch: {},
+    computed: {
+      _isMobile () {
+        let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+        return flag
+      }
+    },
+    methods: {},
+    created () {},
+    mounted () {
+      this.$refs.md.$nextTick(() => {
+        setTimeout(() => {
+          let blocks = this.$el.querySelectorAll('pre code')
+          blocks.forEach((block) => hljs.highlightBlock(block))
+        }, 1000)
+      })
+    }
+  }
+  ```
+
+- 使用组件
+
+  ```html
+  <mavon-editor ref="md" v-model="value" :subfield='false' :editable='false' :toolbarsFlag='!_isMobile' :ishljs='true' defaultOpen="preview" :navigation='true'/>
+  ```
+
+# 5.保存喜欢的音乐
+
+- 新建js/cache.js
+
+  ```js
+  import storage from 'good-storage'
+  
+  const FAVORITE_KEY = '__favorite__'
+  const FAVORITE_MAX_LENGTH = 200
+  
+  function insertArray (arr, val, compare, maxLen) {
+    const index = arr.findIndex(compare)
+    if (index === 0) {
+      return
+    }
+    if (index > 0) {
+      arr.splice(index, 1)
+    }
+    arr.unshift(val)
+    if (maxLen && arr.length > maxLen) {
+      arr.pop()
+    }
+  }
+  
+  function deleteFromArray (arr, compare) {
+    const index = arr.findIndex(compare)
+    if (index > -1) {
+      arr.splice(index, 1)
+    }
+  }
+  
+  export function saveFavorite (song) {
+    let songs = storage.get(FAVORITE_KEY, [])
+    insertArray(songs, song, (item) => {
+      return song === item
+    }, FAVORITE_MAX_LENGTH)
+    storage.set(FAVORITE_KEY, songs)
+    return songs
+  }
+  
+  export function deleteFavorite (song) {
+    let songs = storage.get(FAVORITE_KEY, [])
+    deleteFromArray(songs, (item) => {
+      return song.id === item.id
+    })
+    storage.set(FAVORITE_KEY, songs)
+    return songs
+  }
+  
+  export function loadFavorite () {
+    return storage.get(FAVORITE_KEY, [])
+  }
+  ```
+
+- 在music-box组件引入
+
+  ```js
+  import {saveFavorite, deleteFavorite, loadFavorite} from 'common/js/cache'
+  ```
+
+- 使用
+
+  ```js
+  like (item) {
+    if (this.songs.includes(item.id)) return
+    let copy = copySong(item)
+    copy.source = 'Normal'
+    copy.index = this.songs.length
+    this.songs.push(copy.id)
+    this.songlist.push(copy)
+    this.playindex = copy.index
+    saveFavorite(copy.id)
+  },
+  unlike (item) {
+    let id = this.songs.indexOf(item.id)
+    if (id !== -1) {
+    this.songlist.splice(id, 1)
+    this.songs.splice(id, 1)
+    }
+    this.playindex = -1
+    this.songlist.forEach((item, index) => {
+    item.index = index
+    })
+    deleteFavorite(item.id)
+  },
+  ```
+
+# 6.代码高亮
+
+- 添加依赖
+
+  ```json
+  "highlight.js": "10.1.2"
+  ```
+
+- md-view组件中引入
+
+  ```js
+  import hljs from 'highlight.js'
+  ```
+
+  设置props，（组件自带的高亮有点问题，强制关掉，但是codeStyle='atom-one-dark'是为了引入hljs的css样式
+
+  ```js
+  <mavon-editor ref="md" :ishljs='false' codeStyle='atom-one-dark'/>
+  ```
+
+- 加载后设置延时引入，在md-view的mounted方法添加
+
+  ```js
+  mounted () {
+    this.$refs.md.$nextTick(() => {
+      setTimeout(() => {
+        let blocks = this.$el.querySelectorAll('pre code')
+        blocks.forEach((block) => hljs.highlightBlock(block))
+      }, 1000)
+    })
+  }
+  ```
+  
+   this.$refs.md.$nextTick是在md组件渲染完成后执行，设置了延时是为了打开博客时不卡，因为是循环替换样式
+  
+
+注意
+
+```css
+  'rgba(0, 0, 0, calc(var(--opacity)*2))'
+```
+
+  是calc与var结合的写法
+
+- 修改代码背景色和默认色
+
+  ```css
+  .markdown-body .highlight pre,
+  .markdown-body pre {
+    background-color: rgba(0, 0, 0, calc(var(--opacity)*2)) !important;
+    color: #fff;
+  }
+  .v-note-wrapper, .v-note-op, .v-show-content{
+    background-color: var(--color) !important;
+  }
+  .v-note-navigation-wrapper {
+    right: 12px !important;
+    bottom: auto !important;
+    height: auto !important;
+    border: none !important;
+    width: 225px !important;
+    background-color: rgba(255,255,255,0.4) !important;
+    opacity: var(--opacity);
+  }
+  .v-show-content {
+    height: 1200px !important;
+  }
+  .v-note-wrapper .v-note-panel .v-note-show .v-show-content.scroll-style-border-radius::-webkit-scrollbar, .v-note-wrapper .v-note-panel .v-note-show .v-show-content-html.scroll-style-border-radius::-webkit-scrollbar {
+    width: 12px !important;
+    background-color: var(--color) !important;
+  }
+  ```
+  

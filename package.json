@@ -27,7 +27,8 @@
     "vuescroll": "4.16.1",
     "mavon-editor": "2.9.0",
     "markdown-loader": "5.1.0",
-    "html-loader": "1.3.0"
+    "html-loader": "1.3.0",
+    "highlight.js": "10.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

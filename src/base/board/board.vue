@@ -5,7 +5,7 @@
     </div>
     <div class="line"></div>
     <slot></slot>
-    <p  v-html="content"></p>
+    <p v-html="content"></p>
   </div>
 </template>
 

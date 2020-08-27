@@ -6,6 +6,7 @@ import router from './router'
 import vuescroll from 'vuescroll'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+
 Vue.use(mavonEditor)
 Vue.use(vuescroll)
 

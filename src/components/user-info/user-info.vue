@@ -25,7 +25,7 @@
       </span>
       <span data-title="GitHub" v-if="user.contact.github">
         <svg class="icon" aria-hidden="true">
-          <a href="#">
+          <a :href="user.contact.github">
             <use xlink:href="#icon-githubb"></use>
           </a>
         </svg>
@@ -73,7 +73,7 @@ export default {
         contact: {
           email: '790477428@qq.com',
           qq: '790477428',
-          github: 1,
+          github: 'https://github.com/iCodek/vue-blog',
           zhihu: 1,
           bili: 0
         }

@@ -109,7 +109,7 @@ export default {
       .count {
       display: inline-block;
       border-radius: 100%;
-      width: 40px;
+      width: 2rem;
       background-color:#73c9e5;
       color: rgb(255, 255, 255);
       opacity: 0.7;

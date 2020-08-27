@@ -4,7 +4,7 @@
       <div class="process" :style="{width}"></div>
       <div class="thunk" ref="trunk" :style="{left}">
         <div :class="blockClass"></div>
-        <div class="tips">
+        <div class="tips" ref="tips">
           <span>{{parseInt(scale*100)}}</span>
         </div>
       </div>
@@ -34,6 +34,7 @@ export default {
     var _this = this
     if (!this._isMobile()) {
       this.thunk.onmousedown = function (e) {
+        _this.$refs.tips.style.opacity = 1
         _this.blockClass = 'block'
         var width = parseInt(_this.width) / 100 * _this.slider.offsetWidth
         var disX = e.clientX
@@ -50,12 +51,14 @@ export default {
           _this.$emit('input', _this.per)
         }
         document.onmouseup = function () {
+          _this.$refs.tips.style.opacity = 0
           document.onmousemove = document.onmouseup = null
         }
         return false
       }
     } else {
       this.thunk.ontouchstart = function (e) {
+        _this.$refs.tips.style.opacity = 1
         _this.blockClass = 'block'
         var width = parseInt(_this.width) / 100 * _this.slider.offsetWidth
         var disX = e.touches[0].clientX
@@ -72,6 +75,7 @@ export default {
           _this.$emit('input', _this.per)
         }
         document.ontouchend = function () {
+          _this.$refs.tips.style.opacity = 0
           document.ontouchmove = document.ontouchend = null
         }
       }
@@ -157,7 +161,7 @@ export default {
   opacity: 0.2;
 }
 .play {
-  animation: twinkle 8s ease infinite;
+  animation: twinkle 3.6s ease infinite;
 }
 .slider .tips {
   position: absolute;
@@ -175,15 +179,12 @@ export default {
 .sliderwrap:hover > .slider > .thunk >.block{
   opacity: 1 !important;
 }
-.slider .block:hover + .tips{
-  opacity: 1;
-}
 @keyframes twinkle {
   0% {
     opacity: 0;
   }
   50% {
-    opacity: 0.8;
+    opacity: 1;
   }
   100% {
     opacity: 0;
