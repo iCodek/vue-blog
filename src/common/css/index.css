@@ -1,0 +1,23 @@
+body {
+  cursor: url('../../assets/cursor.cur'), default;
+}
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  font-size: 40px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --color: rgba(255, 255, 255, 1);
+  --opacity: 1;
+  --margin: 6;
+}
+a {
+  text-decoration: none;
+  color: rgb(60, 136, 236);
+}

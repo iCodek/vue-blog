@@ -81,7 +81,7 @@ export default {
   padding-top: 40%;
   // height: 200px;
   overflow: hidden;
-  margin-bottom: 4%;
+  margin-bottom: 3.2%;
   &:last-child {
     margin-bottom: 0;
   }
@@ -108,7 +108,7 @@ export default {
   .title {
     width: 80%;
     line-height: 50px;
-    font-size: 3.6vw;
+    font-size: 4vw;
     position: absolute;
     transition: all 0.2s ease;
     top: 40%;
@@ -116,6 +116,12 @@ export default {
     color: #fff;
     text-shadow: 0 0 5px #000;
     transform: translate(-50%, -50%);
+    @media screen and (max-width:1200px){
+      font-size: 6vw;
+    }
+    @media screen and (max-width:1600px) and (min-width:1200px){
+      font-size: 3vw;
+    }
   }
   .foot {
     position: absolute;
@@ -124,9 +130,18 @@ export default {
     width: 100%;
     opacity: 0;
     transition: all 0.2s ease;
-    font-size: 1.2vw;
+    font-size: 1.3rem;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width:1200px){
+      font-size: 2vw;
+    }
+    @media screen and (max-width:1600px) and (min-width:1200px){
+      font-size: 1.2vw;
+    }
+    @media screen and (min-width:2000px){
+      font-size: 1.8vw;
+    }
     .description {
       flex: 1;
       top: 0;
@@ -148,8 +163,17 @@ export default {
       margin-top: 0;
       display: flex;
       .icon {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         margin-bottom: 0.15rem;
+        @media screen and (max-width:1200px){
+          font-size: 2vw;
+        }
+        @media screen and (max-width:1600px) and (min-width:1200px){
+          font-size: 1.2vw;
+        }
+        @media screen and (min-width:2000px){
+          font-size: 1.8vw;
+        }
       }
       .time {
         text-align: left;

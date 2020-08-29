@@ -27,8 +27,7 @@ export default {
 </script>
 <style  lang="scss" scoped>
 .left-content{
-  // min-width: 200px;
-  margin: 5px;
+  margin: calc(var(--margin) * 1px);
   width: 360px;
   @media screen and (max-width:1200px){
     display: none;

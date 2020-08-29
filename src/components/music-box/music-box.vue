@@ -140,7 +140,7 @@ export default {
     },
     toPlay (item, e) {
       if (this.songs.includes(item.id)) item.islike = true
-      // else item.islike = false
+      else item.islike = false
       this.$refs.player.setPlay(item)
       if (item.source === 'Normal') {
         this.playindex = item.index

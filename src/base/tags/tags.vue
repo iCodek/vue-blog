@@ -32,7 +32,7 @@ export default {
   computed: {},
   methods: {
     rainBow () {
-      this.color = rainbowColor(this.tags.length, 15, 255)
+      this.color = rainbowColor(this.tags.length, 30, 255)
     },
     shuffle () {
       this.tags = _.shuffle(this.tags)

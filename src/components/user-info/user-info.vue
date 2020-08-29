@@ -100,7 +100,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .user-info{
-  height: 380px;
+  height: 370px;
   text-align: center;
   background-color: var(--color);
   margin-bottom: 20px;
@@ -137,7 +137,7 @@ export default {
   .username {
     line-height: 32px;
     font-size: 28px;
-    margin: 72px auto 18px;
+    margin: 66px auto 15px;
   }
   .sum {
     width: 100%;
@@ -155,7 +155,7 @@ export default {
     }
   }
   .contacts {
-    margin: 24px auto;
+    margin: 24px auto 0 auto;
     display: flex;
     width: 92%;
     span {

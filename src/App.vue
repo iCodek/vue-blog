@@ -22,16 +22,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import url("/common/css/index.css");
 #app {
   position: relative;
   top: 0;
   height: 100%;
   width: 100%;
   overflow: hidden;
-  .move{
-    height: auto;
-  }
 }
-
 </style>

@@ -26,9 +26,6 @@ export default {
 }
 </script>
 <style>
-body {
-  cursor: url('../../assets/cursor.cur'), default;
-}
 .bg{
   position: fixed;
   top: 0;

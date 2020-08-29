@@ -30,7 +30,7 @@ export default {
 <style  lang="scss" scoped>
 .center-content{
   position: relative;
-  margin: 5px;
+  margin: calc(var(--margin) * 1px) calc(var(--margin) * 2px);
   flex: 1;
   overflow: hidden;
 }

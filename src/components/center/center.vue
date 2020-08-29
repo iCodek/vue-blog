@@ -31,13 +31,16 @@ export default {
   mounted () {}
 }
 </script>
-<style>
+<style lang="scss" scoped>
 .center{
   position: relative;
   display: flex;
   align-items:flex-start;
   height: 100%;
   width: 90%;
-  margin: 5px auto;
+  margin: calc(var(--margin) * 1px) auto;
+  @media screen and (max-width:1200px){
+    width: 96%;
+  }
 }
 </style>
