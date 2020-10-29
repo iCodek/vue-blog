@@ -24,17 +24,6 @@
 
 3. 打包
 
-   修改config/index.js下的两处
-
-   ```
-   assetsPublicPath: '/'
-   ```
-
-   改为
-
-   ```
-   assetsPublicPath: './'
-   ```
 
    终端运行
 
